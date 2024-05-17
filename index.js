@@ -36,8 +36,8 @@ function getHumanChoice() {
     // }
     // Was trying to be clean but this did not work. Not enough knowledge of syntax.
 
-    if (humanInput.toLowerCase() === "rock") {
-        return humanInput.toLowerCase();
+    if (humanInput.toLowerCase() === "rock") {   // this toLowerCase is so that player can input any combination of capitalisation
+        return humanInput.toLowerCase();        // this toLowerCase is so that the RETURN is lower case.
     } else if (humanInput.toLowerCase() === "paper") {
         return humanInput.toLowerCase();
     } else if (humanInput.toLowerCase() === "scissors") {
@@ -47,9 +47,57 @@ function getHumanChoice() {
         return getHumanChoice();
     }
 
+    // was not sure of a way (if there is one) to access the choices const I made for the IF statement
+
 }
 
+
+// Include pseudocode here. I kind of cheated and skipped that.
+// Didn't know how to formulate my plan (which you would say means I
+// did not understand it, which seems to be a basic misunderstanding
+// of how the brain works).
+// There are ppl out there who have never learned or think in a language at all!
+// They are just as smart!
+
 function playRound(humanChoice, computerChoice) {
+    console.log("Computer selected " + computerChoice);
+    console.log("You selected " + humanChoice);
+
+    
+    
+    if (humanChoice === computerChoice) {
+        return game = "Tie";
+    } else {
+        switch(humanChoice)  {
+            case "rock":
+                game = (computerChoice === "scissors") ? "You won": "You lost";
+                break;
+            case "paper":
+                game = (computerChoice === "rock") ? "You won": "You lost";
+                break;
+            case "scissors":
+                game = (computerChoice === "paper") ? "You won": "You lost";
+                break;
+        // if i get rid of "game" can I include the Score increments within the ternery syntax?
+        // When I tried to include it, it logged a "0" at the end of the string.
+        // how do I then RETURN the appropriate results?
+        }
+    }
+    
+    
+    
+    if (game === "You won") {
+        humanScore++;
+    } else if (game === "You lost") {
+        computerScore++;
+    }
+    return game;
+
+
+
+    // I COULD make a giant long "if else" statement (9 times!) but that seems silly, trying to use ternary/switch
+
+
 
 }
 
@@ -58,5 +106,4 @@ const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
 
-console.log("Computer selected " + computerSelection);
-console.log("You selected " + humanSelection);
+console.log(game);
