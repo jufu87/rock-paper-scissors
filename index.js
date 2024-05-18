@@ -32,7 +32,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     
-    let humanInput = prompt("Rock, Paper or Scissors?");
+    let humanInput = prompt("Round " + round + " of 5 of Rock, Paper or Scissors! Results in the console!");
     // if (humanInput.toLowerCase() === "rock" || "paper" || "scissors") {
     //     return humanInput;
     // } else {
