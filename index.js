@@ -1,7 +1,6 @@
 console.log("Rock, Paper, Scissors");
 
-let humanScore = 0;
-let computerScore = 0;
+
 const choices = ["rock", "paper", "scissors"];
 
 // Computer choice:
@@ -101,6 +100,22 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
+
+//  Move the function and the score variables within the playRound function
+//  When a round finishes increment a variable on how many rounds have been played by 1
+//  Create a loop that stops once that variable reaches 5
+
+function playGame() {
+   
+
+
+
+
+}
+
+let humanScore = 0
+let computerScore = 0
+let playedRounds = 0
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
