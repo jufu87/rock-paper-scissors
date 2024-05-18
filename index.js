@@ -1,5 +1,5 @@
 console.log("Rock, Paper, Scissors");
-
+let round = 1;
 
 const choices = ["rock", "paper", "scissors"];
 
@@ -13,11 +13,11 @@ const choices = ["rock", "paper", "scissors"];
 function getComputerChoice() {
     
     let computerInput = choices[Math.floor(Math.random() * 3)];
-    // Originally this was "let computerResult". It worked, but
+    // Originally this was "let computerSelection". It worked, but
     // I was not sure how a LET inside a function of an already assigned 
     // global CONST behaves so I made a new variable: "computerInput".
-    // Why did this work?
-    // This is something that needs research
+    // Why did computerSelection work?
+    // This needs research
 
     return computerInput;
 }
@@ -58,47 +58,7 @@ function getHumanChoice() {
 // There are ppl out there who have never learned or think in a language at all!
 // They are just as smart!
 
-function playRound(humanChoice, computerChoice) {
-    console.log("Computer selected " + computerChoice);
-    console.log("You selected " + humanChoice);
 
-    
-    
-    if (humanChoice === computerChoice) {
-        return game = "Tie";
-    } else {
-        switch(humanChoice)  {
-            case "rock":
-                game = (computerChoice === "scissors") ? "You won": "You lost";
-                break;
-            case "paper":
-                game = (computerChoice === "rock") ? "You won": "You lost";
-                break;
-            case "scissors":
-                game = (computerChoice === "paper") ? "You won": "You lost";
-                break;
-        // if i get rid of "game" can I include the Score increments within the ternery syntax?
-        // When I tried to include it, it logged a "0" at the end of the string.
-        // how do I then RETURN the appropriate results?
-        }
-    }
-    
-    
-    
-    if (game === "You won") {
-        humanScore++;
-    } else if (game === "You lost") {
-        computerScore++;
-    }
-    return game;
-
-
-
-    // I COULD make a giant long "if else" statement (9 times!) but that seems silly, trying to use ternary/switch
-
-
-
-}
 
 
 //  Move the function and the score variables within the playRound function
@@ -106,19 +66,86 @@ function playRound(humanChoice, computerChoice) {
 //  Create a loop that stops once that variable reaches 5
 
 function playGame() {
+    let humanScore = 0
+    let computerScore = 0
+    
    
+    
+    function playRound(humanChoice, computerChoice) {
+        console.log("Computer selected " + computerChoice);
+        console.log("You selected " + humanChoice);
+        round++;
+        
+        
+        if (humanChoice === computerChoice) {
+            return game = "Tie";
+        } else {
+            switch(humanChoice)  {
+                case "rock":
+                    game = (computerChoice === "scissors") ? "You won": "You lost";
+                    break;
+                case "paper":
+                    game = (computerChoice === "rock") ? "You won": "You lost";
+                    break;
+                case "scissors":
+                    game = (computerChoice === "paper") ? "You won": "You lost";
+                    break;
+            // if i get rid of "game" can I include the Score increments within the ternery syntax?
+            // When I tried to include it, it logged a "0" at the end of the string.
+            // how do I then RETURN the appropriate results?
+            }
+        }
+        
+        
+        
+        if (game === "You won") {
+            humanScore++;
+        } else if (game === "You lost") {
+            computerScore++;
+        }
+        return game;
+    
+    
+    
+        // I COULD make a giant long "if else" statement (9 times!) but that seems silly, trying to use ternary/switch
+    
+    
+    
+    }
+    
+
+
+        // This is the loop to call playRound 5 times:
+
+        while (round !== 6) {
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice(); 
+            playRound(humanSelection, computerSelection);
+    
+            console.log(game);
+                
+    
+            console.log("Computer score = " + computerScore);
+            console.log("Your score = " + humanScore);
+            if (round !== 6) {
+                console.log("Next up round " + round);
+            } else {
+                console.log("Game finished!");
+            }
+        }
+    
+
+        if (humanScore > computerScore) {
+        console.log("YOU HAVE WON THE GAME! CONGRATULATIONS!");
+        } else if (humanScore < computerScore) {
+            console.log("COMPUTER HAS WON THE GAME! COMMISERATIONS!");
+        } else {
+            console.log("THE GAME WAS A TIE! HOW BORING!");
+        }
+    }
+
+ 
+playGame(); 
 
 
 
-
-}
-
-let humanScore = 0
-let computerScore = 0
-let playedRounds = 0
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
-
-console.log(game);
