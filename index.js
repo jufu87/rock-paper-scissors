@@ -1,4 +1,4 @@
-console.log("Rock, Paper, Scissors");
+console.log("Rock, Paper, Scissors. 5 Rounds!!");
 let round = 1;
 
 const choices = ["rock", "paper", "scissors"];
@@ -15,8 +15,8 @@ function getComputerChoice() {
     
     let computerInput = choices[Math.floor(Math.random() * 3)];
     // ^^ Originally this was "let computerSelection". It worked, but
-    // I was not sure how a LET inside a function of an already assigned 
-    // global CONST behaves so I made a new variable: "computerInput".
+    // I was not sure how a LET of an already assigned 
+    // global CONST behaves inside a function, so I made a new variable: "computerInput".
     // Why did computerSelection work?
     // This needs research
     // computerSelection and humanSelection was later moved inside the playGame function.
@@ -26,7 +26,7 @@ function getComputerChoice() {
 
 //  PSEUDOCODE:
 //  When user writes into a prompt
-//  convert and accept any combinations of lower and upper cases into lowercase.
+//  accept any combinations of lower and upper cases, convert into lowercase.
 //  If user inputs something outside of the 3 valid strings, repeat the prompt with an error message
 //  If input is valid, RETURN the input as a string.
 
@@ -71,17 +71,17 @@ function playGame() {
             round++;
             
             if (humanChoice === computerChoice) {
-                return game = "Tie";
+                return game = "You tied this round!";
             } else {
                 switch(humanChoice)  {
                     case "rock":
-                        game = (computerChoice === "scissors") ? "You won": "You lost";
+                        game = (computerChoice === "scissors") ? "You won this round.": "You lost this round.";
                         break;
                     case "paper":
-                        game = (computerChoice === "rock") ? "You won": "You lost";
+                        game = (computerChoice === "rock") ? "You won this round.": "You lost this round.";
                         break;
                     case "scissors":
-                        game = (computerChoice === "paper") ? "You won": "You lost";
+                        game = (computerChoice === "paper") ? "You won this round.": "You lost this round.";
                         break;
                 // if i get rid of "game" can I include the Score increments within the ternery syntax?
                 // When I tried to include it, it logged a "0" at the end of the string.
@@ -90,9 +90,9 @@ function playGame() {
                 }
             }
             
-            if (game === "You won") {
+            if (game === "You won this round.") {
                 humanScore++;
-            } else if (game === "You lost") {
+            } else if (game === "You lost this round.") {
                 computerScore++;
             }
             return game;
@@ -114,8 +114,9 @@ function playGame() {
             }
         }
     
+        // This is the code for win declarations.
         if (humanScore > computerScore) {
-        console.log("YOU HAVE WON THE GAME! CONGRATULATIONS!");
+            console.log("YOU HAVE WON THE GAME! CONGRATULATIONS!");
         } else if (humanScore < computerScore) {
             console.log("COMPUTER HAS WON THE GAME! BETTER LUCK NEXT TIME!");
         } else {
