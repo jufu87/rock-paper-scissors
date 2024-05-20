@@ -86,7 +86,7 @@ function playGame() {
                 // if i get rid of "game" can I include the Score increments within the ternery syntax?
                 // When I tried to include it, it logged a "0" at the end of the string.
                 // how do I then RETURN the appropriate results?
-                // Also, I COULD make a giant long "if else" statement (9 times!) but that seems silly, trying to use ternary/switch
+                // Also, I COULD make a giant long "if else" statement but that seems silly, trying to use ternary/switch
                 }
             }
             
