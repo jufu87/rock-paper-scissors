@@ -7,8 +7,6 @@ let humanScore = 0
 let computerScore = 0
 let game = "";
 
-
-
 function getComputerChoice() {
     let computerInput = choices[Math.floor(Math.random() * 3)];
     return computerInput;
@@ -58,7 +56,19 @@ function playRound(humanChoice, computerChoice) {
     }
     console.log("Computer score = " + computerScore);
     console.log("Your score = " + humanScore);
-    return game;
+
+
+    if (humanScore === 5) {
+        alert("YOU HAVE WON THE GAME! CONGRATULATIONS!");
+        return;
+    } else if (computerScore === 5) {
+        alert("COMPUTER HAS WON THE GAME! BETTER LUCK NEXT TIME!");
+        return;
+    };
+    
+
+
+    return;
 }
 
 console.log("hscore: " + humanScore);
@@ -66,11 +76,6 @@ console.log("cscore: " + computerScore);
 console.log("round: " + round);
 
 
-if (humanScore === 5) {
-    alert("YOU HAVE WON THE GAME! CONGRATULATIONS!");
-} else if (computerScore === 5) {
-    alert("COMPUTER HAS WON THE GAME! BETTER LUCK NEXT TIME!");
-};
 
 
 btnRock.addEventListener("click", event => {
