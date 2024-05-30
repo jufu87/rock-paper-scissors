@@ -29,65 +29,49 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
     computerChoseTextLi.textContent = "Computer selected: " + computerChoice;
     humanChoseTextLi.textContent = "You selected: " + humanChoice;
-    console.log("Computer selected " + computerChoice);
-    console.log("You selected " + humanChoice);
     round++;
 
-    
     if (humanChoice === computerChoice) {
-        game = "You tied this round!";
+        game = "You tied this round";
     } else {
         switch(humanChoice)  {
             case "rock":
-                game = (computerChoice === "scissors") ? "You won this round.": "You lost this round.";
+                game = (computerChoice === "scissors") ? "You won this round": "You lost this round";
                 break;
             case "paper":
-                game = (computerChoice === "rock") ? "You won this round.": "You lost this round.";
+                game = (computerChoice === "rock") ? "You won this round": "You lost this round";
                 break;
             case "scissors":
-                game = (computerChoice === "paper") ? "You won this round.": "You lost this round.";
+                game = (computerChoice === "paper") ? "You won this round": "You lost this round";
                 break;
         }
     }
  
-    if (game === "You won this round.") {
+    if (game === "You won this round") {
         humanScore++;
-        console.log(game);
         resultLi.textContent = game;
-
-    } else if (game === "You lost this round.") {
+    } else if (game === "You lost this round") {
         computerScore++;
-        console.log(game);
         resultLi.textContent = game;
     } else {
-        console.log(game);
         resultLi.textContent = game;
     }
 
-
     computerScoreLi.textContent = "Computer score: " + computerScore;
     humanScoreLi.textContent = "Your score: " + humanScore;
-    console.log("Computer score = " + computerScore);
-    console.log("Your score = " + humanScore);
-
+   
     if (humanScore === 5) {
-        
-        winMessageParagraph.textContent = "YOU HAVE WON THE GAME! CONGRATULATIONS";
-        
+        winMessageParagraph.textContent = "YOU HAVE WON THE GAME!";
         hideChoiceBtns();
         return;
     } else if (computerScore === 5) {
-        
-        winMessageParagraph.textContent = "COMPUTER HAS WON THE GAME! BETTER LUCK NEXT TIME!";
-        
+        winMessageParagraph.textContent = "COMPUTER HAS WON THE GAME!";
         hideChoiceBtns();
         return;
     };
     
     return;
 }
-
-
 
 btnRock.addEventListener("click", event => {
     const humanSelection = "rock";
@@ -108,21 +92,20 @@ btnScissors.addEventListener("click", event => {
 });
 
 function showChoiceBtns() {
-    choiceBtns.style.display = "block";
+    choiceBtns.style.display = "flex";
     humanScore = 0;
     computerScore = 0;
     computerChoseTextLi.textContent = "Computer";
     humanChoseTextLi.textContent = "You"
-    resultLi.textContent = "Result";
+    resultLi.textContent = "Round result";
     computerScoreLi.textContent = "Compuer score";
     humanScoreLi.textContent = "Your Score";
     winMessageDiv.style.display = "none";
-    
 }
 
 function hideChoiceBtns() {
     choiceBtns.style.display = "none";
-    winMessageDiv.style.display = "block";
+    winMessageDiv.style.display = "flex";
 }
 
 newGameBtn.addEventListener("click", showChoiceBtns);
