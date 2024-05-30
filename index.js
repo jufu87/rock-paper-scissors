@@ -1,4 +1,7 @@
+const headerDiv = document.querySelector("#header");
 const resultsDiv = document.querySelector("#results-div");
+const newGameBtn = document.querySelector("#newGame");
+const choiceBtns = document.querySelector("#choiceBtns");
 const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
@@ -13,6 +16,7 @@ let humanScore = 0
 let computerScore = 0
 let game = "";
 
+choiceBtns.style.display = "none";     //   hide buttons div, enable with New Game
 
 function getComputerChoice() {
     let computerInput = choices[Math.floor(Math.random() * 3)];
@@ -67,16 +71,20 @@ function playRound(humanChoice, computerChoice) {
         resultLi.textContent = "YOU HAVE WON THE GAME! CONGRATULATIONS";
         humanScore = 0;
         computerScore = 0;
+        hideChoiceBtns();
         return;
     } else if (computerScore === 5) {
         resultLi.textContent = "COMPUTER HAS WON THE GAME! BETTER LUCK NEXT TIME!";
         humanScore = 0;
         computerScore = 0;
+        hideChoiceBtns();
         return;
     };
     
     return;
 }
+
+
 
 btnRock.addEventListener("click", event => {
     const humanSelection = "rock";
@@ -95,3 +103,13 @@ btnScissors.addEventListener("click", event => {
     const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
 });
+
+function showChoiceBtns() {
+    choiceBtns.style.display = "block";
+}
+
+function hideChoiceBtns() {
+    choiceBtns.style.display = "none";
+}
+
+newGameBtn.addEventListener("click", showChoiceBtns);
