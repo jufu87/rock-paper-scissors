@@ -27,8 +27,8 @@ function getComputerChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    computerChoseTextLi.textContent = "Computer selected: " + computerChoice;
-    humanChoseTextLi.textContent = "You selected: " + humanChoice;
+    computerChoseTextLi.textContent = "Computer chose: " + computerChoice;
+    humanChoseTextLi.textContent = "You chose: " + humanChoice;
     round++;
 
     if (humanChoice === computerChoice) {
@@ -61,11 +61,11 @@ function playRound(humanChoice, computerChoice) {
     humanScoreLi.textContent = "Your score: " + humanScore;
    
     if (humanScore === 5) {
-        winMessageParagraph.textContent = "YOU HAVE WON THE GAME!";
+        winMessageParagraph.textContent = "YOU WON!";
         hideChoiceBtns();
         return;
     } else if (computerScore === 5) {
-        winMessageParagraph.textContent = "COMPUTER HAS WON THE GAME!";
+        winMessageParagraph.textContent = "YOU LOST!";
         hideChoiceBtns();
         return;
     };
