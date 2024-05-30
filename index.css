@@ -67,20 +67,17 @@ body {
 }
 
 #btn-rock{
-    max-height: 100px;
-    max-width: 100px;
+   
     width: 10vw;
     height: auto;
 }
 #btn-paper{
-    max-height: 100px;
-    max-width: 100px;
+ 
     width: 10vw;
     height: auto;
 }
 #btn-scissors{
-    max-height: 100px;
-    max-width: 100px;
+ 
     width: 10vw;
     height: auto;
 }
