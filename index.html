@@ -10,14 +10,21 @@
 <body>
     <div id="playArea">
         <div id="header">
-            <button id="newGame">New Game</button>
+            <ul>
+                <li>Rock Paper Scissors</li>
+            </ul>
+            
         </div>
         <div id="choiceBtns">
             <button id="btn-rock">Rock</button>
             <button id="btn-paper">Paper</button>
             <button id="btn-scissors">Scissors</button>
+            
         </div>
-        <div id="results-div">Let's play Rock, Paper, Scissors!
+        <div id="winMessageDiv">
+            <p id="winMessageParagraph"></p>
+        </div>
+        <div id="results-div">
             <ul>
                 <li id="computerChoseTextLi"></li>
                 <li id="humanChoseTextLi"></li>
@@ -25,6 +32,9 @@
                 <li id="computerScoreLi"></li>
                 <li id="humanScoreLi"></li>
             </ul>
+        </div>
+        <div id="footer">
+            <button id="newGame">New Game</button>
         </div>
     </div>
 </body>

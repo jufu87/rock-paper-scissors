@@ -2,6 +2,8 @@ const headerDiv = document.querySelector("#header");
 const resultsDiv = document.querySelector("#results-div");
 const newGameBtn = document.querySelector("#newGame");
 const choiceBtns = document.querySelector("#choiceBtns");
+const winMessageDiv = document.querySelector("#winMessageDiv");
+const winMessageParagraph = document.querySelector("#winMessageParagraph");
 const btnRock = document.querySelector("#btn-rock");
 const btnPaper = document.querySelector("#btn-paper");
 const btnScissors = document.querySelector("#btn-scissors");
@@ -17,6 +19,7 @@ let computerScore = 0
 let game = "";
 
 choiceBtns.style.display = "none";     //   hide buttons div, enable with New Game
+winMessageDiv.style.display = "none";
 
 function getComputerChoice() {
     let computerInput = choices[Math.floor(Math.random() * 3)];
@@ -68,15 +71,15 @@ function playRound(humanChoice, computerChoice) {
     console.log("Your score = " + humanScore);
 
     if (humanScore === 5) {
-        resultLi.textContent = "YOU HAVE WON THE GAME! CONGRATULATIONS";
-        humanScore = 0;
-        computerScore = 0;
+        
+        winMessageParagraph.textContent = "YOU HAVE WON THE GAME! CONGRATULATIONS";
+        
         hideChoiceBtns();
         return;
     } else if (computerScore === 5) {
-        resultLi.textContent = "COMPUTER HAS WON THE GAME! BETTER LUCK NEXT TIME!";
-        humanScore = 0;
-        computerScore = 0;
+        
+        winMessageParagraph.textContent = "COMPUTER HAS WON THE GAME! BETTER LUCK NEXT TIME!";
+        
         hideChoiceBtns();
         return;
     };
@@ -106,10 +109,20 @@ btnScissors.addEventListener("click", event => {
 
 function showChoiceBtns() {
     choiceBtns.style.display = "block";
+    humanScore = 0;
+    computerScore = 0;
+    computerChoseTextLi.textContent = "Computer";
+    humanChoseTextLi.textContent = "You"
+    resultLi.textContent = "Result";
+    computerScoreLi.textContent = "Compuer score";
+    humanScoreLi.textContent = "Your Score";
+    winMessageDiv.style.display = "none";
+    
 }
 
 function hideChoiceBtns() {
     choiceBtns.style.display = "none";
+    winMessageDiv.style.display = "block";
 }
 
 newGameBtn.addEventListener("click", showChoiceBtns);
